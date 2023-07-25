@@ -9,6 +9,7 @@ import jetson_inference, jetson_utils, argparse, sys
 mlCard1 = random.randint(1, 11)
 mlCard2 = random.randint(1, 11)
 ml_cards = [mlCard1, mlCard2]
+mlExtras = []
 
 
 p1card = random.randint(1,11)
@@ -93,8 +94,12 @@ def game():
 #  the bot deciding wether or not to raise, lower
 #  todo add data/decision collection!!
  def bot():
-    global mlCard1, ml_cards, mlCard2, p1card
-    
+    global mlCard1, ml_cards, mlCard2, p1card, mlExtras
+    maxraise == 18
+    if sum(ml_cards) <= 18:
+        mlExtras.append(random.randint(1, 11))
+        
+
 
 
 
