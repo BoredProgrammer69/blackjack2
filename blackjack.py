@@ -1,5 +1,5 @@
 import random
-import jetson_inference, jetson_utils, argparse, sys
+import jetson_inference, jetson_utils, argparse, sys, time
 
 #todo add ML file to imports above
 #todo fix the infinite looping problem -- CHECK
@@ -10,7 +10,7 @@ mlCard1 = random.randint(1, 11)
 mlCard2 = random.randint(1, 11)
 ml_cards = [mlCard1, mlCard2]
 mlExtras = []
-
+count = 0
 
 p1card = random.randint(1,11)
 p1card2 = random.randint(1,11)
@@ -64,13 +64,11 @@ def raiser():
 # the ask
 def ask():
     up = input("Do you raise? (y/n) ")
-    print(up)
-    print(str.lower(up) == "yes")
     if str.lower(up) == "yes" or str.lower(up) == "y":
         raiser()
     else:
         print("you chose to stay.")
-        game()
+        compare()
 
 
 #start of game
@@ -83,36 +81,32 @@ def begin():
     p1card2 = random.randint(1,11)
     p1cards = [p1card, p1card2]
     extras = []
-    print("Your starting cards are " + str(p1cards) + ".. totaling " + str(sum(p1cards)) )
+    print("Your starting cards are " + str(p1cards) + ".. totaling " + str(sum(p1cards)))
     print("your opponent has: " + str(mlCard1) +" , and a card you cannot see.") 
+    bot()
     ask()
-
 # game itself?
-def game():
-    print("game")
+def compare():
+    if 
 
 #  the bot deciding wether or not to raise, lower
 #  todo add data/decision collection!!
- def bot():
-    global mlCard1, ml_cards, mlCard2, p1card, mlExtras
-    maxraise == 18
-    if sum(ml_cards) <= 18:
-        mlExtras.append(random.randint(1, 11))
+def bot():
+    global mlCard1, ml_cards, mlCard2, p1card, mlExtras, count
+    print(str(ml_cards))
+    while sum(ml_cards) <= 18 and count == 0:
+        ml_cards.append(random.randint(1, 11))
+        print("your opponent chose to raise.")
+        count = count + 1
+        time.sleep(1)
+        if count >= 1:
+            ml_cards.append(random.randint(1, 11))
+            print("..And raised again.")
+            count = count - 1
+        if sum(ml_cards) == 21:
+            print("your opponent chose to stay.")
+    if sum(ml_cards) >= 18:
+        print("your opponent chose to stay.")
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 begin()
 
