@@ -85,7 +85,8 @@ def begin():
     print("your opponent has: " + str(mlCard1) +" , and a card you cannot see.") 
     bot()
     ask()
-# game itself?
+
+# game itself? compare stuff
 def compare():
     if 
 
