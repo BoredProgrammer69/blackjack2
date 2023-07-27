@@ -7,7 +7,7 @@ count = 0
 top = 21
 wins = 0
 
-numbers = []
+numbers = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 def replay():
     bot2()
@@ -19,18 +19,18 @@ def check2():
     else:
         return
 
-def bot2():
-    global card1, card2, cards, count, top, wins
-    print(str(cards))
-    while sum(cards) <= 21 and count == 0:
-        cards.append(random.randint(1, 11))
-        count = count + 1
-        time.sleep(1)
-        if count >= 1:
-            cards.append(random.randint(1, 11))
-            count = count - 1
-        if sum(cards) == 21:
-            wins = wins + 1
+# def bot2():
+#     global card1, card2, cards, count, top, wins
+#     print(str(cards))
+#     while sum(cards) <= 21 and count == 0:
+#         cards.append(random.randint(1, 11))
+#         count = count + 1
+#         time.sleep(1)
+#         if count >= 1:
+#             cards.append(random.randint(1, 11))
+#             count = count - 1
+#         if sum(cards) == 21:
+#             wins = wins + 1
 
 def begin():
     bot2()
@@ -38,16 +38,27 @@ def begin():
 
 
 def whatever():
+    global card1, card2, cards, count, top, wins, sumnatioj
     for i in range (80000):
+        time.sleep(2)
         print(str(cards))
         while sum(cards) < 21:
-            count = count + 1
-        if count >= 1:
+            count = count + 1 #todo add cards to hand here
+            print(count)
             cards.append(random.randint(1, 11))
-            numbers.append[(sum(cards))]
             sumnatioj = 0
-            for j in range (len(sum(cards))) - 1:
+            for j in range (len((cards))- 1):
                 sumnatioj = sumnatioj + cards[j]
-            # numbers[sum(cards)] = numbers(sum(cards))
                 numbers[sumnatioj] = numbers[sumnatioj] + 1
                 count = count - 1   
+            file = open('numbers.txt','w')
+            file.write(str(numbers))
+        if count >= 1:
+            cards.append(random.randint(1, 11))
+            sumnatioj = 0
+            for j in range (len((cards))-1) :
+                sumnatioj = sumnatioj + cards[j]
+                numbers[sumnatioj] = numbers[sumnatioj] + 1
+                count = count - 1   
+
+whatever()
