@@ -1,9 +1,9 @@
-import random
-import jetson_inference, jetson_utils, argparse, sys, time
-
 #todo add ML file to imports above
 #todo fix the infinite looping problem -- CHECK
 #todo add data collection !!
+import random
+import argparse, sys, time
+import learning
 
 #create data for the game at start
 mlCard1 = random.randint(1, 11)
@@ -87,8 +87,8 @@ def begin():
     ask()
 
 # game itself? compare stuff
-def compare():
-    if 
+# def compare():
+#     if 
 
 #  the bot deciding wether or not to raise, lower
 #  todo add data/decision collection!!
